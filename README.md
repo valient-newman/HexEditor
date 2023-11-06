@@ -14,7 +14,7 @@
 
   THexEditor descends from TCustomGrid, and displays and edits hexadecimal/binary files
   THexToCanvas is a descendant of TComponent, assign a THexEditor to it, set some properties
-  and you can paint the hex data to a canvas ( e.g. printer canvas )
+  and you can paint the hex data to a canvas (e.g. printer canvas)
 
   credits to:
 
