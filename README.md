@@ -9,7 +9,7 @@
   Valient Newman <valient.newman@proton.me>
   My Github Repository <https://github.com/valient-newman>
 
-  THexEditor v1.16,
+  THexEditor v1.17,
   THexToCanvas v1.0 Beta 2
 
   THexEditor descends from TCustomGrid, and displays and edits hexadecimal/binary files
@@ -29,3 +29,4 @@
   Daniel Jensen, no_comply@usa.net for octal offset display and the INS-key recognition stuff
 
   written by Markus Stephany, mirbir.st@t-online.de, http://home.t-online.de/home/mirbir.st
+
