@@ -1,10 +1,10 @@
 unit Hexeditor;
-
+{$I DFS.INC}
 {
   Simple corrections brought in THexEditor, THexToCanvas by Valient Newman to make the component meet
   the requirements of Delphi 6 and higher, when the design-time and runtime code must be separated.
 
-  Checked in Delphi 7 and Delphi 2007
+  Checked in Delphi 7 and Delphi 2007, 2009
   
   This component is used in Activity and Authentication Analyzer
   https://aaanalyzer.blogspot.com/
@@ -12,7 +12,7 @@ unit Hexeditor;
   Valient Newman <valient.newman@proton.me>
   My Github Repository <https://github.com/valient-newman>
 
-  THexEditor v1.16,
+  THexEditor v1.18,
   THexToCanvas v1.0 Beta 2
 
   THexEditor descends from TCustomGrid, and displays and edits hexadecimal/binary files
@@ -49,6 +49,10 @@ unit Hexeditor;
                CTRL+DEL removes the current selection
 
    ***history :
+      V1.18 : released sep 03 23
+	          added support the Delphi 2009
+      V1.17 : released sep 03 23
+              added support the Delphi 7 and Delphi 2007
       V1.16 : released feb 02 99
 
               added WMGetDlgCode to avoid problems with shortcut-controls on the form
@@ -721,6 +725,7 @@ end;
 
 // translate the buffer from ANSI to the given translation mode
 procedure TranslateBufferFromAnsi ( const TType : TTranslationType ; aBuffer , bBuffer : PChar ; const aCount : Integer );
+
 var
    pct : Integer;
    pch : Char ;
@@ -728,8 +733,13 @@ begin
      case TType
      of
        ttAnsi    : Move ( aBuffer^ , bBuffer^ , aCount );
+       {$IFDEF DFS_COMPILER_12_UP}
+       ttDOS8,
+       ttASCII   : CharToOEMBuff ( PWideChar(aBuffer), PAnsiChar(bBuffer), aCount );
+       {$ELSE}
        ttDOS8,
        ttASCII   : CharToOEMBuff ( aBuffer , bBuffer , aCount );
+       {$ENDIF}
        ttMAC     : if aCount > 0
                    then
                        for pct := 0 to Pred ( aCount )
@@ -760,8 +770,13 @@ begin
      case TType
      of
        ttAnsi    : Move ( aBuffer^ , bBuffer^ , aCount );
+      {$IFDEF DFS_COMPILER_12_UP}
+       ttDOS8,
+       ttASCII   : OEMToCharBuff ( PAnsiChar(aBuffer), PWideChar(bBuffer), aCount );
+      {$ELSE}
        ttDOS8,
        ttASCII   : OEMToCharBuff ( aBuffer , bBuffer , aCount );
+       {$ENDIF}
        ttMAC     : if aCount > 0
                    then
                        for pct := 0 to Pred ( aCount )
