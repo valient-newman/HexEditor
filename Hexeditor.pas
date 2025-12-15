@@ -1,5 +1,4 @@
 unit Hexeditor;
-{$I DFS.INC}
 {
   Simple corrections brought in THexEditor, THexToCanvas by Valient Newman to make the component meet
   the requirements of Delphi 6 and higher, when the design-time and runtime code must be separated.
@@ -733,13 +732,14 @@ begin
      case TType
      of
        ttAnsi    : Move ( aBuffer^ , bBuffer^ , aCount );
-       {$IFDEF DFS_COMPILER_12_UP}
+       {$IF CompilerVersion >= 20.0}
+       // Delphi 2009 and higher
        ttDOS8,
        ttASCII   : CharToOEMBuff ( PWideChar(aBuffer), PAnsiChar(bBuffer), aCount );
        {$ELSE}
        ttDOS8,
        ttASCII   : CharToOEMBuff ( aBuffer , bBuffer , aCount );
-       {$ENDIF}
+       {$IFEND}
        ttMAC     : if aCount > 0
                    then
                        for pct := 0 to Pred ( aCount )
@@ -770,13 +770,14 @@ begin
      case TType
      of
        ttAnsi    : Move ( aBuffer^ , bBuffer^ , aCount );
-      {$IFDEF DFS_COMPILER_12_UP}
+       {$IF CompilerVersion >= 20.0}
+       // Delphi 2009 and higher
        ttDOS8,
        ttASCII   : OEMToCharBuff ( PAnsiChar(aBuffer), PWideChar(bBuffer), aCount );
       {$ELSE}
        ttDOS8,
        ttASCII   : OEMToCharBuff ( aBuffer , bBuffer , aCount );
-       {$ENDIF}
+       {$IFEND}
        ttMAC     : if aCount > 0
                    then
                        for pct := 0 to Pred ( aCount )
