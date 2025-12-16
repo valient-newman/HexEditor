@@ -2,6 +2,7 @@
   the requirements of Delphi 6 and higher, when the design-time and runtime code must be separated.
 
   Corrections were made to comply with Delphi 2009 requirements.
+  
   Date last modified by Newman:  December 15, 2025
   
   Checked in Delphi 7 and Delphi 2007, 2009
@@ -30,5 +31,6 @@
                     and better support for the french keyboard layout
 
   Daniel Jensen , no_comply@usa.net for octal offset display and the INS-key recognition stuff
+
 
   written by Markus Stephany, mirbir.st@t-online.de, http://home.t-online.de/home/mirbir.st
