@@ -2,7 +2,8 @@
   Simple corrections brought in THexEditor, THexToCanvas by Valient Newman to make the component meet
   the requirements of Delphi 6 and higher, when the design-time and runtime code must be separated.
 
-  Checked in Delphi 7 and Delphi 2007
+  Corrections were made to comply with Delphi 2009 requirements.
+  Date last modified by Newman:  December 15, 2025
   
   This component is used in Activity and Authentication Analyzer
   https://aaanalyzer.blogspot.com/
@@ -10,7 +11,7 @@
   Valient Newman <valient.newman@proton.me>
   My Github Repository <https://github.com/valient-newman>
 
-  THexEditor v1.16,
+  THexEditor v1.18,
   THexToCanvas v1.0 Beta 2
 
   THexEditor descends from TCustomGrid, and displays and edits hexadecimal/binary files
@@ -31,10 +32,6 @@
 
   written by Markus Stephany, mirbir.st@t-online.de, http://home.t-online.de/home/mirbir.st
 }
-
-{$I DFS.INC}
-
-
 
 unit HexeditorReg;
 

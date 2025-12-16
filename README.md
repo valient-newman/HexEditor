@@ -1,6 +1,9 @@
   Simple corrections brought in THexEditor, THexToCanvas by Valient Newman to make the component meet
   the requirements of Delphi 6 and higher, when the design-time and runtime code must be separated.
 
+  Corrections were made to comply with Delphi 2009 requirements.
+  Date last modified by Newman:  December 15, 2025
+  
   Checked in Delphi 7 and Delphi 2007, 2009
   
   This component is used in Activity and Authentication Analyzer
