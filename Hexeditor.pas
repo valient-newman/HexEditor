@@ -686,6 +686,7 @@ function Int64ToOctal ( const aValue : Int64 ) : string;
 {$ENDIF}
 
 implementation
+{$R 'hexeditor.dcr'}
 
 const
      // undo constants
