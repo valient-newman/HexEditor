@@ -49,7 +49,7 @@ uses
   {$ELSE}
   DsgnIntf,
   {$IFEND}
-  Hexeditor, DFSAbout, Classes;
+  Hexeditor, Classes;
 
 { Add the components to the Delphi Component Palette.  You will want to }
 { modify this so that it appears on the page of your choice.            }
