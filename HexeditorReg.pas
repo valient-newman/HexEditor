@@ -42,12 +42,13 @@ procedure Register;
 implementation
 
 uses
-  {$IFDEF DFS_NO_DSGNINTF}
+  {$IF CompilerVersion >= 14.0}
+  // Delphi 6 or higher gets rid off the DsgnIntf unit for good
   DesignIntf,
   DesignEditors,
   {$ELSE}
   DsgnIntf,
-  {$ENDIF}
+  {$IFEND}
   Hexeditor, DFSAbout, Classes;
 
 { Add the components to the Delphi Component Palette.  You will want to }
